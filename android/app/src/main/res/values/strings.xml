@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">QuinTour</string>
+    <string name="app_name">QuinTours</string>
+    <string name="sample_device_admin">QuinBook</string>
+    <string name="sample_device_admin_description">QuinBook APP</string>
 </resources>

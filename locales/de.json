@@ -1,0 +1,45 @@
+{
+  "common": {
+    "welcome": "Willkommen",
+    "cancel": "Abbrechen",
+    "loading": "Laden",
+    "close": "Schließen",
+    "again": "Noch einmal",
+    "no": "Nein",
+    "yes": "Ja",
+    "ok": "OK",
+    "start": "Start",
+    "i_am_here": "Ich bin da"
+  },
+  "header": {
+    "search": "Suche",
+    "logout": "Abmelden",
+    "exit": "Beenden"
+  },
+  "tour": {
+    "enter_code": "Code eingeben",
+    "help": "Hilfe",
+    "im_here": "Ich bin hier",
+    "points": "Punkte",
+    "end_tour": "Tour beenden",
+    "empty_tour_text": "Diese Tour ist leer, bitte versuche eine andere Tour.",
+    "start_tour_text": "Starte deine Quiz-Tour, indem du unten auf die Schaltfläche tippst.",
+    "start_tour": "Tour starten",
+    "further": "Weiter",
+    "i_have_arrived": "Ich bin angekommen",
+    "choose": "Wählen",
+    "quiz_error_text": "Deine Antwort war falsch, bitte versuche es erneut.",
+    "confirm": "Bestätigen",
+    "no_video_found": "Kein Video gefunden",
+    "next_step": "Nächster Schritt",
+    "need_more_help": "Brauchst du mehr Hilfe?",
+    "accept_help": "Hilfe annehmen",
+    "resolution": "Lösung",
+    "resolution_confirmation": "Möchtest du wirklich jetzt die Lösung sehen?",
+    "photo_task": "Foto-Aufgabe",
+    "use_photo_text": "Möchtest du dieses Foto verwenden?",
+    "skip_further_help_text": "Wenn du auf JA tippst, überspringst du alle weiteren Hilfen und erhältst direkt die Lösung.",
+    "enter_answer": "Antwort eingeben",
+    "tour_interruption_text": "Wir haben festgestellt, dass die letzte Tour unterbrochen wurde. Möchtest du sie fortsetzen?"
+  }
+}

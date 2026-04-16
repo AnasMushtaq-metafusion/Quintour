@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "252155809542",
+    "project_id": "quintour-21b68",
+    "storage_bucket": "quintour-21b68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252155809542:android:6ebc63de2d780647989887",
+        "android_client_info": {
+          "package_name": "com.quinbook.tour"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6qO4htBziK8KdXZllu6tVMHLPzgIEpO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

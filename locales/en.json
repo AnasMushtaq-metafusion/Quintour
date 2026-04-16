@@ -1,0 +1,45 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "cancel": "Cancel",
+    "loading": "Loading",
+    "close": "Close",
+    "again": "Again",
+    "no": "No",
+    "yes": "Yes",
+    "ok": "OK",
+    "start": "Start",
+    "i_am_here": "I'm here"
+  },
+  "header": {
+    "search": "Search",
+    "logout": "Logout",
+    "exit": "Exit"
+  },
+  "tour": {
+    "enter_code": "Enter the code",
+    "help": "Help",
+    "im_here": "I'm here",
+    "points": "Points",
+    "end_tour": "End tour",
+    "empty_tour_text": "This Tour is Empty, Please try another tour",
+    "start_tour_text": "Start your quiz tour by tapping the button below.",
+    "start_tour": "Start tour",
+    "further": "Futher",
+    "i_have_arrived": "I have arrived",
+    "choose": "Choose",
+    "quiz_error_text": "Your answer was incorrect, please retry",
+    "confirm": "Confirm",
+    "no_video_found": "No video found",
+    "next_step": "Next step",
+    "need_more_help": "Do you need more help?",
+    "accept_help": "Accept help",
+    "resolution": "Resolution",
+    "resolution_confirmation": "Do you really want the resolution now?",
+    "photo_task": "Photo Task",
+    "use_photo_text": "Do you want to use this photo",
+    "skip_further_help_text": "If you tap YES, you will skip all further help and get the solution straight away.",
+    "enter_answer": "Enter answer",
+    "tour_interruption_text": "We noticed that the last tour was interrupted. Would you like to continue it?"
+  }
+}
