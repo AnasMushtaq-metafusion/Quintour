@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import {
   Dimensions,
-  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -33,7 +32,8 @@ const ConfirmPopup = ({
               maxHeight: windowHeight - 300,
               marginBottom: 15,
               width: '100%',
-            }}>
+            }}
+          >
             <Text style={styles.heading}>{heading}</Text>
             <Text style={styles.subHeading}>{subHeading}</Text>
           </ScrollView>
@@ -47,7 +47,8 @@ const ConfirmPopup = ({
                     : '#A659FE',
                 },
               ]}
-              onPress={onCancel}>
+              onPress={onCancel}
+            >
               <Text
                 style={{
                   ...styles.buttonText,
@@ -55,7 +56,8 @@ const ConfirmPopup = ({
                     ? layoutImage?.foregroundBtnTextColor
                     : '#fff',
                   textTransform: 'capitalize',
-                }}>
+                }}
+              >
                 {t('common:no')}
               </Text>
             </TouchableOpacity>
@@ -68,7 +70,8 @@ const ConfirmPopup = ({
                     : '#A659FE',
                 },
               ]}
-              onPress={onClick}>
+              onPress={onClick}
+            >
               <Text
                 style={{
                   ...styles.buttonText,
@@ -76,7 +79,8 @@ const ConfirmPopup = ({
                     ? layoutImage?.foregroundBtnTextColor
                     : '#fff',
                   textTransform: 'capitalize',
-                }}>
+                }}
+              >
                 {t('common:yes')}
               </Text>
             </TouchableOpacity>

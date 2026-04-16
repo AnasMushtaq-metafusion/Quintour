@@ -8,7 +8,6 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Platform,
   ImageBackground,
 } from 'react-native';
 import { COLOR, Font } from '../../Utils/variable';
@@ -93,6 +92,7 @@ const TourEnd = ({ navigation, route }: any) => {
     return () => {
       resetTimer();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetTimer, subScore]);
 
   useEffect(() => {
@@ -137,6 +137,7 @@ const TourEnd = ({ navigation, route }: any) => {
     return () => {
       unsubscribeOnMessage();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const backgroundImageName = layoutImage?.backgroundImage?.split('/').pop();

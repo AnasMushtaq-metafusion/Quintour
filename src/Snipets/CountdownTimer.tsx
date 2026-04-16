@@ -10,12 +10,14 @@ const CountdownTimer = ({ initialTime, handleEndTour }: any) => {
       const updatedTime = initialTime - seconds;
       setTimeLeft(updatedTime > 0 ? updatedTime : 0);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seconds]);
 
   useEffect(() => {
     if (timeLeft === 0) {
       handleEndTour();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeLeft]);
 
   const formatTime = (time: number) => {

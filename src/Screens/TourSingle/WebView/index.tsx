@@ -70,6 +70,7 @@ const TourWebViewScreen = ({ navigation, route }: any) => {
       runTourData();
       if (nextView === 'quintour.success') addScore(data?.score ?? 0);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nextView]);
 
   useEffect(() => {
@@ -85,6 +86,7 @@ const TourWebViewScreen = ({ navigation, route }: any) => {
     }
 
     if (data?.url === '') runTourData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
@@ -109,6 +111,7 @@ const TourWebViewScreen = ({ navigation, route }: any) => {
     return () => {
       unsubscribeOnMessage();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -124,6 +127,7 @@ const TourWebViewScreen = ({ navigation, route }: any) => {
       }, 1000);
       return () => clearInterval(interval);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const runTourData = async () => {

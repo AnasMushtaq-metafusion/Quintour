@@ -89,6 +89,7 @@ const TourPictureScreen = ({ navigation, route }: any) => {
       setIsDeactivatedLoading(false);
       handleRunTourOnLoad(itemId, id, tourRunID, currentPosition);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
@@ -113,6 +114,7 @@ const TourPictureScreen = ({ navigation, route }: any) => {
     return () => {
       unsubscribeOnMessage();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const runTourData = async () => {

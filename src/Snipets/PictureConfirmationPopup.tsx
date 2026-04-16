@@ -42,6 +42,7 @@ const PictureConfirmationPopup = ({
         runTourData();
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
 
   return (
@@ -53,7 +54,8 @@ const PictureConfirmationPopup = ({
               minHeight: 200,
               width: '100%',
               maxHeight: 300,
-            }}>
+            }}
+          >
             <Text style={styles.heading}>{t('tour:photo_task')}</Text>
             <Text style={styles.title}>{t('tour:use_photo_text')}</Text>
             {infoText !== '' && <Text style={styles.infoText}>{infoText}</Text>}
@@ -69,7 +71,8 @@ const PictureConfirmationPopup = ({
               style={styles.button}
               onPress={() => {
                 onCancel();
-              }}>
+              }}
+            >
               <Text style={styles.submitBtnText}>{t('common:again')}</Text>
             </TouchableOpacity>
 
@@ -91,7 +94,8 @@ const PictureConfirmationPopup = ({
                 } else {
                   onClick();
                 }
-              }}>
+              }}
+            >
               {isLoading ? (
                 <ActivityIndicator />
               ) : (
@@ -107,7 +111,8 @@ const PictureConfirmationPopup = ({
                           ? COLOR.Primary
                           : '#000',
                     },
-                  ]}>
+                  ]}
+                >
                   {isSuccess === false ? t('tour:further') : t('tour:confirm')}
                 </Text>
               )}

@@ -7,7 +7,6 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Platform,
   ImageBackground,
 } from 'react-native';
 import { COLOR, Font } from '../../Utils/variable';
@@ -77,6 +76,7 @@ const TourEndAfterStart = ({ navigation, route }: any) => {
       resetTimer();
       subScore(isScore ?? 0);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetTimer, subScore]);
 
   useEffect(() => {
@@ -107,7 +107,8 @@ const TourEndAfterStart = ({ navigation, route }: any) => {
       <View style={styles.fullScreen}>
         <ImageBackground
           source={{ uri: `file://${backgroundImagePath}` }}
-          style={styles.linearGradient}>
+          style={styles.linearGradient}
+        >
           <ScrollView
             ref={scrollRef}
             contentContainerStyle={{
@@ -116,7 +117,8 @@ const TourEndAfterStart = ({ navigation, route }: any) => {
               alignItems: 'center',
               width: 700,
               paddingBottom: isFocusedTextInput ? 350 : 0,
-            }}>
+            }}
+          >
             <View style={styles.containerOuter}>
               <View style={styles.container}>
                 <TextInput
@@ -138,14 +140,16 @@ const TourEndAfterStart = ({ navigation, route }: any) => {
                         ? layoutImage?.foregroundBtnColor
                         : '#A659FE',
                       marginBottom: 10,
-                    }}>
+                    }}
+                  >
                     <Text
                       style={{
                         ...styles.buttonText,
                         color: layoutImage?.foregroundBtnTextColor
                           ? layoutImage?.foregroundBtnTextColor
                           : '#fff',
-                      }}>
+                      }}
+                    >
                       {t('tour:end_tour')}
                     </Text>
                   </TouchableOpacity>
@@ -156,14 +160,16 @@ const TourEndAfterStart = ({ navigation, route }: any) => {
                         ? layoutImage?.foregroundBtnColor
                         : '#A659FE',
                     }}
-                    onPress={() => navigation.goBack()}>
+                    onPress={() => navigation.goBack()}
+                  >
                     <Text
                       style={{
                         ...styles.buttonText,
                         color: layoutImage?.foregroundBtnTextColor
                           ? layoutImage?.foregroundBtnTextColor
                           : '#fff',
-                      }}>
+                      }}
+                    >
                       {t('common:cancel')}
                     </Text>
                   </TouchableOpacity>

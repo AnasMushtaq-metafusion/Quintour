@@ -16,7 +16,7 @@ import {
   UserLocation,
 } from '@maplibre/maplibre-react-native';
 import Geolocation from 'react-native-geolocation-service';
-import { BASE_URL, COLOR, Font, PROD_BASE_URL } from '../../../Utils/variable';
+import { BASE_URL, Font, PROD_BASE_URL } from '../../../Utils/variable';
 import RNFS from 'react-native-fs';
 import LayoutOverlay from '../../../Components/Global/layoutOverlay';
 import {
@@ -26,11 +26,6 @@ import {
   useTourRunID,
 } from '../../../Snipets/GlobalContext';
 import {
-  _getTourPreviousNode,
-  _removeTourItemDetails,
-  _removeTourPreviousNode,
-  _removeTourStarted,
-  _removeTourTargetNode,
   _retrieveData,
   _storeTourPreviousNode,
   _storeTourTargetNode,
@@ -77,6 +72,7 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
   const { addScore, isScore, subScore } = useScore();
   const { addLocation, getTargetLocation, getCountLocation } = useLocation();
   const [currentDistance, setDistance] = useState<number | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [targetPosition, setTargetPosition] = useState<Position>({
     latitude: data?.lat,
     longitude: data?.lng,
@@ -117,6 +113,7 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
     return () => {
       unsubscribeOnMessage();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -130,12 +127,14 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
       setIsDeactivatedLoading(false);
       handleRunTourOnLoad(itemId, id, tourRunID, currentPosition);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
     if (currentPosition !== null && targetID === id) {
       checkProximityToTarget(currentPosition);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPosition, targetID, id]);
 
   const checkProximityToTarget = (currentPosition: Position) => {

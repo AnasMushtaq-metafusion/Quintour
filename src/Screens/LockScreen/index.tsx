@@ -8,7 +8,6 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Platform,
 } from 'react-native';
 import { COLOR, Font } from '../../Utils/variable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -150,7 +149,8 @@ const LockScreen = ({ navigation }: any) => {
       <View style={styles.fullScreen}>
         <LinearGradient
           colors={['#A659FE', '#6F53FD', '#A659FE']}
-          style={styles.linearGradient}>
+          style={styles.linearGradient}
+        >
           <ScrollView
             ref={scrollRef}
             contentContainerStyle={{
@@ -159,7 +159,8 @@ const LockScreen = ({ navigation }: any) => {
               alignItems: 'center',
               width: 700,
               paddingBottom: isFocusedTextInput ? 350 : 0,
-            }}>
+            }}
+          >
             <View style={styles.containerOuter}>
               <View style={styles.container}>
                 <View style={{ marginTop: -47 }}>
@@ -177,7 +178,8 @@ const LockScreen = ({ navigation }: any) => {
                 {error && <Text style={styles.para}>{error}</Text>}
                 <TouchableOpacity
                   onPress={() => handleUnlock()}
-                  style={styles.buttonContainer}>
+                  style={styles.buttonContainer}
+                >
                   <Text style={styles.btnText}>Unlock Screen</Text>
                 </TouchableOpacity>
               </View>

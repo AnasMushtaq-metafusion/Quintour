@@ -12,7 +12,6 @@ import {
   ScrollView,
   ActivityIndicator,
   useWindowDimensions,
-  Platform,
 } from 'react-native';
 import {
   _retrieveData,
@@ -321,6 +320,7 @@ const TourQuiz = ({ navigation, route }: any) => {
     return () => {
       unsubscribeOnMessage();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -336,6 +336,7 @@ const TourQuiz = ({ navigation, route }: any) => {
       setIsDeactivatedLoading(false);
       handleRunTourOnLoad(itemId, id, tourRunID, currentPosition);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const fetchData = async () => {
@@ -572,6 +573,7 @@ const TourQuiz = ({ navigation, route }: any) => {
           onPress={() => handleSelect(ans?.value)}
           style={[
             styles.option,
+            // eslint-disable-next-line react-native/no-inline-styles
             {
               width: data?.answers?.length === 1 ? 300 : '100%',
               borderColor:
@@ -594,6 +596,7 @@ const TourQuiz = ({ navigation, route }: any) => {
           <Text
             style={[
               styles.optionText,
+              // eslint-disable-next-line react-native/no-inline-styles
               {
                 color: layoutImage?.foregroundBtnTextColor ?? COLOR.White,
                 textAlign: data?.answers?.length === 1 ? 'center' : 'left',

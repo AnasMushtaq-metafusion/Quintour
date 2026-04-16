@@ -8,7 +8,7 @@ import {
   useWindowDimensions,
   Alert,
 } from 'react-native';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { COLOR, Font } from '../Utils/variable';
 import CountdownTimer from './CountdownTimer';
 import {
@@ -25,7 +25,6 @@ import RenderHTML from 'react-native-render-html';
 import { getHtmlConfig } from '../Utils/htmlRenderStyles';
 import CameraIcon from '../Asserts/svg/CameraIcon.svg';
 import ImagePicker from 'react-native-image-crop-picker';
-import { _retrieveData } from './Asyncstorage';
 import CountUpTimer from './CountUpTimer';
 
 // import { BlurView } from "@react-native-community/blur";
@@ -99,6 +98,7 @@ const Overlap = ({
       setIsReset(true);
     }
     // isHelpReset(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
@@ -118,6 +118,7 @@ const Overlap = ({
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isReset]);
 
   function handleHelp(): void {
@@ -625,6 +626,7 @@ const HelpPopup = ({
     // }, timeout);
 
     // return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tipSortCount]);
 
   // const handleHelpClick = () => {

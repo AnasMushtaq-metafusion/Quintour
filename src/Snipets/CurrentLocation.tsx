@@ -43,6 +43,7 @@ export const useCurrentPosition = () => {
     return () => {
       stopWatchingPosition();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [speed]);
 
   return currentPosition;

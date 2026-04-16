@@ -10,11 +10,6 @@ import {
   useWindowDimensions,
 } from 'react-native';
 import {
-  _getTourPreviousNode,
-  _removeTourItemDetails,
-  _removeTourPreviousNode,
-  _removeTourStarted,
-  _removeTourTargetNode,
   _retrieveData,
   _storeTourPreviousNode,
   _storeTourTargetNode,
@@ -95,6 +90,7 @@ const TourInfo = ({ navigation, route }: any) => {
     return () => {
       unsubscribeOnMessage();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -108,6 +104,7 @@ const TourInfo = ({ navigation, route }: any) => {
       setIsDeactivatedLoading(false);
       handleRunTourOnLoad(itemId, id, tourRunID, currentPosition);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const runTourData = async () => {

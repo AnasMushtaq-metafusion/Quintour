@@ -1,12 +1,7 @@
 import { PermissionsAndroid, Platform } from 'react-native';
 import Sound from 'react-native-sound';
-import DeviceInfo from 'react-native-device-info';
 
-import {
-  _retrieveData,
-  _storeTourPreviousNode,
-  _storeTourTargetNode,
-} from './Asyncstorage';
+import { _storeTourPreviousNode, _storeTourTargetNode } from './Asyncstorage';
 
 import { handleRunTourOnLoad } from './helpers';
 

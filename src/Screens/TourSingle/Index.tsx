@@ -68,12 +68,14 @@ const TourSingle = ({ navigation, route }: any) => {
 
   useEffect(() => {
     fetchDataCall();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemId]);
 
   useEffect(() => {
     if (refreshing) {
       fetchDataCall();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refreshing]);
 
   const fetchDataCall = async () => {
@@ -616,6 +618,7 @@ const TourSingle = ({ navigation, route }: any) => {
         webViewRef.current?.postMessage(JSON.stringify(payload));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loader, imageLoader]);
 
   return (

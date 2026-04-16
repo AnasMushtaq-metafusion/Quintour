@@ -24,6 +24,7 @@ const requestLocationPermission = async () => {
       return false;
     }
   } catch (err) {
+    console.log('err', err);
     return false;
   }
 };

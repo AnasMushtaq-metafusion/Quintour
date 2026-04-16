@@ -72,6 +72,7 @@ const useBackgroundWorker = () => {
         console.log('Background worker stopped.');
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 

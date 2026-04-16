@@ -1,5 +1,4 @@
 import { BackendModule } from 'i18next';
-import { BASE_URL } from '../Utils/variable';
 
 const CustomBackend: BackendModule = {
   type: 'backend',
