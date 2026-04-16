@@ -87,6 +87,12 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 68
         versionName "1.0.4"
+        
+        // Support for 16KB page size (Android 15+, Pixel 9, etc.)
+        ndk {
+            // Ensure all ABIs are built with 16KB alignment
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
     }
     
     configurations.all {
