@@ -6,8 +6,6 @@ import {
   ActivityIndicator,
   Image,
   TouchableOpacity,
-  Platform,
-  Alert,
 } from 'react-native';
 import Video from 'react-native-video';
 import LinearGradient from 'react-native-linear-gradient';
@@ -21,12 +19,6 @@ import {
   useTargetID,
   useTourRunID,
 } from '../../../Snipets/GlobalContext';
-import {
-  request,
-  PERMISSIONS,
-  RESULTS,
-  openSettings,
-} from 'react-native-permissions';
 import {
   _retrieveData,
   _storeTourPreviousNode,
@@ -45,40 +37,6 @@ import { playAudio } from '../../../Snipets/playAudio';
 import AppStyles from '../../../Asserts/global-css/AppStyles';
 import DemoIcon from '../../../Asserts/svg/DemoIcon.svg';
 import * as Sentry from '@sentry/react-native';
-
-const useStoragePermission = () => {
-  const [hasPermission, setHasPermission] = useState(false);
-
-  useEffect(() => {
-    const requestStoragePermission = async () => {
-      if (Platform.OS === 'android') {
-        const permission = PERMISSIONS.ANDROID.READ_MEDIA_VIDEO;
-        try {
-          const result = await request(permission);
-          setHasPermission(result === RESULTS.GRANTED);
-          if (result !== RESULTS.GRANTED) {
-            Alert.alert(
-              'Permission Required',
-              'Storage permission is required to play videos. Please enable it in the app settings.',
-              [
-                { text: 'Cancel', style: 'cancel' },
-                { text: 'Open Settings', onPress: () => openSettings() },
-              ],
-            );
-          }
-        } catch (err) {
-          console.warn(err);
-        }
-      } else {
-        setHasPermission(true); // Permissions are automatically granted on iOS
-      }
-    };
-
-    requestStoragePermission();
-  }, []);
-
-  return hasPermission;
-};
 
 const ProgressBar = ({ currentTime, duration }: any) => (
   <View style={styles.progress}>
@@ -130,7 +88,6 @@ const TourVideoScreen = ({ navigation, route }: any) => {
   const { getCountLocation, getTargetLocation } = useLocation();
   const { tourRunID } = useTourRunID();
   const [testMode, setTestMode] = useState<boolean>(false);
-  const hasPermission = useStoragePermission();
   const isFocused = useIsFocused();
   const [isDeactivatedLoading, setIsDeactivatedLoading] =
     useState<boolean>(true);
@@ -370,7 +327,10 @@ const TourVideoScreen = ({ navigation, route }: any) => {
 
   const fileName = data?.url?.split('/').pop();
   const folderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/Videos/i_tour_${itemId}`;
-  const videopath = folderPath ? `${folderPath}/${fileName}` : data?.url;
+  const localVideoPath = fileName ? `${folderPath}/${fileName}` : null;
+  const videoUri = localVideoPath
+    ? `file://${encodeURI(localVideoPath)}`
+    : data?.url;
 
   return (
     <LayoutOverlay
@@ -392,22 +352,22 @@ const TourVideoScreen = ({ navigation, route }: any) => {
           <ActivityIndicator size={'large'} />
         </View>
       ) : (
-        <View style={styles.container}>
-          <ProgressBar currentTime={currentTime} duration={duration} />
-          <VideoControls paused={paused} handlePlayPause={handlePlayPause} />
-          {hasPermission ? (
-            <Video
-              source={{ uri: `${videopath}` }}
-              style={styles.video}
-              resizeMode="cover"
-              paused={paused}
-              onEnd={runTourData}
-              onLoad={onLoad}
-              onProgress={onProgress}
-            />
-          ) : (
-            <View>
-              <Text>{t('tour:no_video_found')}</Text>
+          <View style={styles.container}>
+            <ProgressBar currentTime={currentTime} duration={duration} />
+            <VideoControls paused={paused} handlePlayPause={handlePlayPause} />
+            {videoUri ? (
+              <Video
+                source={{ uri: videoUri }}
+                style={styles.video}
+                resizeMode="cover"
+                paused={paused}
+                onEnd={runTourData}
+                onLoad={onLoad}
+                onProgress={onProgress}
+              />
+            ) : (
+              <View>
+                <Text>{t('tour:no_video_found')}</Text>
               <TouchableOpacity onPress={() => runTourData()}>
                 <Text style={styles.button}>{t('tour:next_step')}</Text>
               </TouchableOpacity>

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { PermissionsAndroid, Platform } from 'react-native';
+import { useEffect, useRef } from 'react';
 import Sound from 'react-native-sound';
 import {
   useLocation,
@@ -23,30 +22,6 @@ import {
 import { useIsFocused } from '@react-navigation/native';
 import * as Sentry from '@sentry/react-native';
 
-const requestAudioPermission = async () => {
-  if (Platform.OS === 'android') {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-        {
-          title: 'Audio Permission',
-          message:
-            'This app needs access to your microphone to play audio files',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      return granted === PermissionsAndroid.RESULTS.GRANTED;
-    } catch (err) {
-      console.warn(err);
-      return false;
-    }
-  } else {
-    return true; // iOS permissions are handled in the app's Info.plist
-  }
-};
-
 const PlayAudio = ({ navigation, route }: any) => {
   const {
     data,
@@ -69,7 +44,7 @@ const PlayAudio = ({ navigation, route }: any) => {
   const target = nodes.find((node: any) => node.id === source?.target);
   const isFocused = useIsFocused();
 
-  let sound: Sound;
+  const soundRef = useRef<Sound | null>(null);
 
   useEffect(() => {
     const messagingInstance = getMessaging();
@@ -219,31 +194,36 @@ const PlayAudio = ({ navigation, route }: any) => {
   };
 
   useEffect(() => {
-    requestAudioPermission().then(hasPermission => {
-      if (hasPermission) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        sound = new Sound(data?.url, Sound.MAIN_BUNDLE, error => {
-          if (error) {
-            console.log('Failed to load the sound', error);
-            return;
-          }
+    if (!data?.url) {
+      runTourData();
+      return;
+    }
 
-          sound.play(success => {
-            if (success) {
-              console.log('Successfully finished playing');
-            } else {
-              console.log('Playback failed due to audio decoding errors');
-            }
-            sound.release();
-          });
-        });
+    const currentSound = new Sound(data?.url, '', error => {
+      if (error) {
+        console.log('Failed to load the sound', error);
+        runTourData();
+        return;
       }
+
+      currentSound.play(success => {
+        if (!success) {
+          console.log('Playback failed due to audio decoding errors');
+        }
+        currentSound.release();
+        soundRef.current = null;
+        runTourData();
+      });
     });
 
+    soundRef.current = currentSound;
+
     return () => {
-      if (sound) {
-        sound.play();
-        runTourData();
+      if (soundRef.current) {
+        soundRef.current.stop(() => {
+          soundRef.current?.release();
+          soundRef.current = null;
+        });
       }
     };
   }, [data?.url]);

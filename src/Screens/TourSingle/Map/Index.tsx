@@ -88,8 +88,13 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
   const [isReset, setIsReset] = useState<boolean>(false);
 
   const cameraRef = useRef<any>(null);
+  const hasFittedCameraRef = useRef<boolean>(false);
 
   const watchId = useRef<number | null>(null);
+
+  useEffect(() => {
+    hasFittedCameraRef.current = false;
+  }, [id]);
 
   useEffect(() => {
     const messagingInstance = getMessaging();
@@ -377,11 +382,19 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
     : `https://api.jawg.io/styles/jawg-streets.json?access-token=aDTkVS0v9FYqZKmkyR1EFFvjrwpA3waKu6A29RfRFkIDex39PO0t1puyQxBSLtH6`;
 
   useEffect(() => {
-    if (currentPosition && targetPosition) {
+    if (
+      currentPosition &&
+      targetPosition &&
+      cameraRef.current &&
+      !hasFittedCameraRef.current
+    ) {
       cameraRef.current?.fitBounds(
         [currentPosition?.longitude, currentPosition?.latitude],
         [targetPosition?.longitude, targetPosition?.latitude],
+        120,
+        1000,
       );
+      hasFittedCameraRef.current = true;
     }
   }, [currentPosition, targetPosition]);
 
@@ -445,13 +458,8 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
                     currentPosition?.longitude,
                     currentPosition?.latitude,
                   ]}
-                  zoomLevel={data?.zoomLvl ?? 7}
-                  followUserLocation={true}
-                  followZoomLevel={data?.zoomLvl ?? 7}
                   minZoomLevel={1}
-                  maxZoomLevel={25}
-                  animationDuration={2000}
-                  animationMode="easeTo"
+                  maxZoomLevel={17}
                 />
               )}
               {currentPosition && (

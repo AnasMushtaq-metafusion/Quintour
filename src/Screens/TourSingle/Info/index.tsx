@@ -249,18 +249,25 @@ const TourInfo = ({ navigation, route }: any) => {
 
   const fileName = data?.image_preview?.split('/').pop();
   const folderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/Images/i_tour_${itemId}`;
-  const imagePath = folderPath
-    ? `${folderPath}/${fileName}`
+  const imagePath = fileName ? `${folderPath}/${fileName}` : '';
+  const bannerUri = imagePath
+    ? `file://${encodeURI(imagePath)}`
     : data?.image_preview;
 
   const backgroundImageName = layoutImage?.backgroundImage?.split('/').pop();
   const foregroundImageName = layoutImage?.foregroundImage?.split('/').pop();
   const backgroundFolderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/BackgroundImages/i_tour_${itemId}`;
-  const backgroundImagePath = backgroundFolderPath
+  const backgroundImagePath = backgroundImageName
     ? `${backgroundFolderPath}/${backgroundImageName}`
+    : null;
+  const backgroundImageUri = backgroundImagePath
+    ? `file://${encodeURI(backgroundImagePath)}`
     : layoutImage?.backgroundImage;
-  const foregroundImagePath = backgroundFolderPath
+  const foregroundImagePath = foregroundImageName
     ? `${backgroundFolderPath}/${foregroundImageName}`
+    : null;
+  const foregroundImageUri = foregroundImagePath
+    ? `file://${encodeURI(foregroundImagePath)}`
     : layoutImage?.foregroundImage;
 
   const { width } = useWindowDimensions();
@@ -316,7 +323,7 @@ const TourInfo = ({ navigation, route }: any) => {
             </LinearGradient>
           ) : (
             <ImageBackground
-              source={{ uri: `file://${backgroundImagePath}` }}
+              source={{ uri: backgroundImageUri }}
               resizeMode="cover"
               style={styles.image}
             >
@@ -386,7 +393,7 @@ const ContentScrollView: React.FC<ContentScrollViewProps> = ({
     <View style={styles.scrollViewInner}>
       <View style={styles.containerOuter}>
         <ImageBackground
-          source={{ uri: `file://${foregroundImagePath}` }}
+          source={foregroundImageUri ? { uri: foregroundImageUri } : undefined}
           resizeMode="stretch"
           style={styles.imageBottom}
         >
@@ -402,12 +409,12 @@ const ContentScrollView: React.FC<ContentScrollViewProps> = ({
               paddingHorizontal: layoutImage?.imagePadding ? 36 : 0,
             }}
           >
-            {data?.image_preview && (
-              <FullScreenImage
-                imageFull={data?.image ?? data?.image_preview}
-                imageUri={`file://${imagePath}`}
-              />
-            )}
+              {data?.image_preview && (
+                <FullScreenImage
+                  imageFull={data?.image ?? data?.image_preview}
+                  imageUri={bannerUri}
+                />
+              )}
             <View
               style={{
                 ...styles.container,

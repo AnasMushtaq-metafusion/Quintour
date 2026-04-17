@@ -169,6 +169,10 @@ export const handleRemoteMessageQuiz = async (
     case 'rmt_capture_screen':
       handleScreenshot(itemId, tourRunID, isFocused);
       break;
+    case 'rmt_lock_screen':
+      _isLockScreen(true);
+      navigation.navigate('lockscreen', { itemMode: 'item' });
+      break;
     default:
       break;
   }
@@ -192,14 +196,14 @@ const handleScreenshot = async (
 
       myHeaders.append('Authorization', `Bearer ${token}`);
       myHeaders.append('Cookie', 'SERVERID=webserver4');
-      myHeaders.append('Content-Type', 'multipart/form-data');
+      const normalizedUri = uri.startsWith('file://') ? uri : `file://${uri}`;
 
       const formData = new FormData();
       formData.append('screenshot', {
-        uri,
+        uri: normalizedUri,
         type: 'image/jpeg',
         name: 'screenshot.jpg',
-      });
+      } as any);
 
       const requestOptions: RequestInit = {
         method: 'POST',

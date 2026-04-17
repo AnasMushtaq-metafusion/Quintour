@@ -425,8 +425,9 @@ const TourQuiz = ({ navigation, route }: any) => {
 
   const fileName = data?.image_preview?.split('/').pop();
   const folderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/Images/i_tour_${itemId}`;
-  const imagePath = folderPath
-    ? `${folderPath}/${fileName}`
+  const imagePath = fileName ? `${folderPath}/${fileName}` : '';
+  const bannerUri = imagePath
+    ? `file://${encodeURI(imagePath)}`
     : data?.image_preview;
 
   const backgroundImageName = layoutImage?.backgroundImage?.split('/').pop();
@@ -434,11 +435,17 @@ const TourQuiz = ({ navigation, route }: any) => {
 
   const backgroundFolderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/BackgroundImages/i_tour_${itemId}`;
 
-  const backgroundImagePath = backgroundFolderPath
+  const backgroundImagePath = backgroundImageName
     ? `${backgroundFolderPath}/${backgroundImageName}`
+    : null;
+  const backgroundImageUri = backgroundImagePath
+    ? `file://${encodeURI(backgroundImagePath)}`
     : layoutImage?.backgroundImage;
-  const foregroundImagePath = backgroundFolderPath
+  const foregroundImagePath = foregroundImageName
     ? `${backgroundFolderPath}/${foregroundImageName}`
+    : null;
+  const foregroundImageUri = foregroundImagePath
+    ? `file://${encodeURI(foregroundImagePath)}`
     : layoutImage?.foregroundImage;
 
   useEffect(() => {
@@ -690,7 +697,7 @@ const TourQuiz = ({ navigation, route }: any) => {
   const renderContent = () => (
     <View style={styles.containerOuter}>
       <ImageBackground
-        source={{ uri: `file://${foregroundImagePath}` }}
+        source={foregroundImageUri ? { uri: foregroundImageUri } : undefined}
         resizeMode="stretch"
         style={styles.imageBottom}
       >
@@ -709,7 +716,7 @@ const TourQuiz = ({ navigation, route }: any) => {
           {data?.image_preview && (
             <FullScreenImage
               imageFull={data?.image ?? data?.image_preview}
-              imageUri={`file://${imagePath}`}
+              imageUri={bannerUri}
             />
           )}
           <View
@@ -889,7 +896,7 @@ const TourQuiz = ({ navigation, route }: any) => {
             </LinearGradient>
           ) : (
             <ImageBackground
-              source={{ uri: `file://${backgroundImagePath}` }}
+              source={{ uri: backgroundImageUri }}
               resizeMode="cover"
               style={styles.image}
             >
