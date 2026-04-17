@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import Sound from 'react-native-sound';
 import {
   useLocation,
   useScore,
@@ -22,6 +21,7 @@ import {
 } from '../../../Snipets/helpers';
 import { useIsFocused } from '@react-navigation/native';
 import * as Sentry from '@sentry/react-native';
+import { AudioManager } from '../../../Services/Audio/AudioManager';
 
 const PlayAudio = ({ navigation, route }: any) => {
   const {
@@ -44,9 +44,12 @@ const PlayAudio = ({ navigation, route }: any) => {
   const source = edges.find((edge: any) => edge.source === id);
   const target = nodes.find((node: any) => node.id === source?.target);
   const isFocused = useIsFocused();
-
-  const soundRef = useRef<Sound | null>(null);
+  const isFocusedRef = useRef(isFocused);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    isFocusedRef.current = isFocused;
+  }, [isFocused]);
 
   useEffect(() => {
     const messagingInstance = getMessaging();
@@ -87,7 +90,7 @@ const PlayAudio = ({ navigation, route }: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  const runTourData = async () => {
+  const sendLeaveAction = async () => {
     _storeTourPreviousNode({
       data,
       id,
@@ -146,11 +149,17 @@ const PlayAudio = ({ navigation, route }: any) => {
 
         // const result = await response.json();
         // getTourRunID(result?.result?.i_tourrun);
-        fetchData();
       } catch (error) {
         console.error('error', error);
         Sentry.captureException(error); // <-- send to Sentry
       }
+    }
+  };
+
+  const runTourData = async () => {
+    await sendLeaveAction();
+    if (isFocusedRef.current) {
+      fetchData();
     }
   };
 
@@ -198,45 +207,42 @@ const PlayAudio = ({ navigation, route }: any) => {
   useEffect(() => {
     if (!data?.url) {
       setIsLoading(false);
+      // No audio => treat as instantly completed.
+      sendLeaveAction().finally(() => {
+        if (isFocusedRef.current) fetchData();
+      });
       return;
     }
 
-    // Enable playback in silence mode
-    Sound.setCategory('Playback');
+    setIsLoading(true);
 
-    // Load from network URL (empty string as second parameter for URLs)
-    soundRef.current = new Sound(data.url, '', error => {
-      if (error) {
-        console.log('Failed to load the sound', error);
-        Sentry.captureException(error);
-        setIsLoading(false);
-        runTourData(); // Move to next node on error
-        return;
-      }
+    // Use global audio manager so playback survives navigation.
+    AudioManager.playQueue([
+      {
+        url: data.url,
+        onEnd: async () => {
+          await sendLeaveAction();
+          if (isFocusedRef.current) {
+            fetchData();
+          }
+        },
+        onError: async (error: unknown) => {
+          console.log('Failed to load/play the sound', error);
+          Sentry.captureException(error);
+          await sendLeaveAction();
+          if (isFocusedRef.current) {
+            fetchData();
+          }
+        },
+      },
+    ]);
 
-      setIsLoading(false);
-      console.log('Sound loaded, duration:', soundRef.current?.getDuration());
-
-      // Play the sound
-      soundRef.current?.play(success => {
-        if (success) {
-          console.log('Successfully finished playing');
-        } else {
-          console.log('Playback failed due to audio decoding errors');
-        }
-        // Move to next node after playback completes
-        runTourData();
-      });
-    });
+    // Hide the spinner once we've triggered playback.
+    setIsLoading(false);
 
     return () => {
-      // Cleanup: stop and release sound resources
-      if (soundRef.current) {
-        soundRef.current.stop(() => {
-          soundRef.current?.release();
-          soundRef.current = null;
-        });
-      }
+      // Intentionally do NOT stop audio here.
+      // Requirement: keep audio playing while navigating away.
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data?.url]);

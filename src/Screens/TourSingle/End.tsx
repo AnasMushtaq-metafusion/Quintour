@@ -39,6 +39,7 @@ import { useIsFocused } from '@react-navigation/native';
 import WebView from 'react-native-webview';
 import AppStyles from '../../Asserts/global-css/AppStyles';
 import DemoIcon from '../../Asserts/svg/DemoIcon.svg';
+import { AudioManager } from '../../Services/Audio/AudioManager';
 
 // create a component
 const TourEnd = ({ navigation, route }: any) => {
@@ -82,6 +83,9 @@ const TourEnd = ({ navigation, route }: any) => {
   };
 
   useEffect(() => {
+    // Make sure any tour audio doesn't keep playing after finishing.
+    AudioManager.stop();
+
     _removeTourStarted();
     _removeTourItemDetails();
     _removeTourTargetNode();

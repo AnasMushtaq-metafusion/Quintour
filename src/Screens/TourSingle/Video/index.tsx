@@ -37,6 +37,7 @@ import { playAudio } from '../../../Snipets/playAudio';
 import AppStyles from '../../../Asserts/global-css/AppStyles';
 import DemoIcon from '../../../Asserts/svg/DemoIcon.svg';
 import * as Sentry from '@sentry/react-native';
+import { AudioManager } from '../../../Services/Audio/AudioManager';
 
 const ProgressBar = ({ currentTime, duration }: any) => (
   <View style={styles.progress}>
@@ -92,6 +93,7 @@ const TourVideoScreen = ({ navigation, route }: any) => {
   const [isDeactivatedLoading, setIsDeactivatedLoading] =
     useState<boolean>(true);
   const [videoError, setVideoError] = useState<boolean>(false);
+  const [isBgAudioPlaying, setIsBgAudioPlaying] = useState(false);
 
   const onLoad = (data: any) => {
     setDuration(Math.floor(data.duration));
@@ -154,6 +156,15 @@ const TourVideoScreen = ({ navigation, route }: any) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const nextValue = !!AudioManager.getNowPlayingUrl();
+      setIsBgAudioPlaying(prev => (prev === nextValue ? prev : nextValue));
+    }, 250);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const runTourData = async () => {
     _storeTourPreviousNode({
@@ -375,6 +386,10 @@ const TourVideoScreen = ({ navigation, route }: any) => {
               style={styles.video}
               resizeMode="cover"
               paused={paused}
+              // Allow tour audio to keep playing while video screen is active.
+              mixWithOthers="mix"
+              disableFocus={true}
+              muted={isBgAudioPlaying}
               onEnd={runTourData}
               onLoad={onLoad}
               onProgress={onProgress}
