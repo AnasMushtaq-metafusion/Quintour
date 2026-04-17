@@ -85,7 +85,7 @@ android {
         applicationId "com.quinbook.tour"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 68
+        versionCode 69
         versionName "1.0.4"
         
         // Support for 16KB page size (Android 15+, Pixel 9, etc.)
