@@ -55,8 +55,10 @@ interface Position {
   longitude: number;
 }
 
+// Adds breathing room so markers stay visible within the operator overlay area.
 const CAMERA_FIT_PADDING = 120;
 const CAMERA_FIT_ANIMATION_MS = 1000;
+// Limits over-zoom that can hide user/target markers behind overlays.
 const CAMERA_MAX_ZOOM = 17;
 
 const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
