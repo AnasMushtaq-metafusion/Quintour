@@ -277,7 +277,7 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
       layoutImage,
     };
     if (target?.type === 'audionode') {
-      await playAudio({
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,
@@ -376,14 +376,20 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
     ? layoutImage?.mapLayout
     : `https://api.jawg.io/styles/jawg-streets.json?access-token=aDTkVS0v9FYqZKmkyR1EFFvjrwpA3waKu6A29RfRFkIDex39PO0t1puyQxBSLtH6`;
 
+  // Only fit bounds once on initial load
+  const [initialBoundsSet, setInitialBoundsSet] = useState(false);
+
   useEffect(() => {
-    if (currentPosition && targetPosition) {
+    if (currentPosition && targetPosition && !initialBoundsSet) {
       cameraRef.current?.fitBounds(
         [currentPosition?.longitude, currentPosition?.latitude],
         [targetPosition?.longitude, targetPosition?.latitude],
+        [50, 50, 50, 50], // padding to prevent icons from being behind overlay
+        1000, // animation duration
       );
+      setInitialBoundsSet(true);
     }
-  }, [currentPosition, targetPosition]);
+  }, [currentPosition, targetPosition, initialBoundsSet]);
 
   return (
     <LayoutOverlay
@@ -445,12 +451,12 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
                     currentPosition?.longitude,
                     currentPosition?.latitude,
                   ]}
-                  zoomLevel={data?.zoomLvl ?? 7}
+                  zoomLevel={Math.min(data?.zoomLvl ?? 16, 16)}
                   followUserLocation={true}
-                  followZoomLevel={data?.zoomLvl ?? 7}
+                  followZoomLevel={Math.min(data?.zoomLvl ?? 16, 16)}
                   minZoomLevel={1}
-                  maxZoomLevel={25}
-                  animationDuration={2000}
+                  maxZoomLevel={18}
+                  animationDuration={1000}
                   animationMode="easeTo"
                 />
               )}

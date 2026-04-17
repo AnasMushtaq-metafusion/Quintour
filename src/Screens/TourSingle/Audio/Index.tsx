@@ -1,5 +1,10 @@
-import { useEffect } from 'react';
-import { PermissionsAndroid, Platform } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import {
+  PermissionsAndroid,
+  Platform,
+  View,
+  ActivityIndicator,
+} from 'react-native';
 import Sound from 'react-native-sound';
 import {
   useLocation,
@@ -69,7 +74,8 @@ const PlayAudio = ({ navigation, route }: any) => {
   const target = nodes.find((node: any) => node.id === source?.target);
   const isFocused = useIsFocused();
 
-  let sound: Sound;
+  const soundRef = useRef<Sound | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const messagingInstance = getMessaging();
@@ -219,36 +225,56 @@ const PlayAudio = ({ navigation, route }: any) => {
   };
 
   useEffect(() => {
-    requestAudioPermission().then(hasPermission => {
-      if (hasPermission) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        sound = new Sound(data?.url, Sound.MAIN_BUNDLE, error => {
-          if (error) {
-            console.log('Failed to load the sound', error);
-            return;
-          }
+    if (!data?.url) {
+      setIsLoading(false);
+      return;
+    }
 
-          sound.play(success => {
-            if (success) {
-              console.log('Successfully finished playing');
-            } else {
-              console.log('Playback failed due to audio decoding errors');
-            }
-            sound.release();
-          });
-        });
+    // Enable playback in silence mode
+    Sound.setCategory('Playback');
+
+    // Load from network URL (empty string as second parameter for URLs)
+    soundRef.current = new Sound(data.url, '', error => {
+      if (error) {
+        console.log('Failed to load the sound', error);
+        Sentry.captureException(error);
+        setIsLoading(false);
+        runTourData(); // Move to next node on error
+        return;
       }
+
+      setIsLoading(false);
+      console.log('Sound loaded, duration:', soundRef.current?.getDuration());
+
+      // Play the sound
+      soundRef.current?.play(success => {
+        if (success) {
+          console.log('Successfully finished playing');
+        } else {
+          console.log('Playback failed due to audio decoding errors');
+        }
+        // Move to next node after playback completes
+        runTourData();
+      });
     });
 
     return () => {
-      if (sound) {
-        sound.play();
-        runTourData();
+      // Cleanup: stop and release sound resources
+      if (soundRef.current) {
+        soundRef.current.stop(() => {
+          soundRef.current?.release();
+          soundRef.current = null;
+        });
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data?.url]);
 
-  return null;
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {isLoading && <ActivityIndicator size="large" color="#0000ff" />}
+    </View>
+  );
 };
 
 export default PlayAudio;

@@ -33,6 +33,7 @@ export const handleRemoteMessage = async (
   tourRunID: number,
   isFocused: boolean,
 ) => {
+  console.log('remoteMessage', remoteMessage);
   const todo = remoteMessage.data?.todo;
 
   switch (todo) {

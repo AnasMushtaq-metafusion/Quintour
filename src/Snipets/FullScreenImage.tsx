@@ -72,8 +72,9 @@ const FullScreenImage = ({ imageUri, imageFull }: any) => {
         animationType="slide"
         transparent={true}
         visible={isModalVisible}
-        style={styles.modal}>
-        <GestureHandlerRootView>
+        style={styles.modal}
+      >
+        <GestureHandlerRootView style={{ flex: 1 }}>
           <View style={styles.fullScreenImageContainer}>
             {imageFull ? (
               <ImageZoom

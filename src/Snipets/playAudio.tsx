@@ -1,32 +1,8 @@
-import { PermissionsAndroid, Platform } from 'react-native';
 import Sound from 'react-native-sound';
 
 import { _storeTourPreviousNode, _storeTourTargetNode } from './Asyncstorage';
 
 import { handleRunTourOnLoad } from './helpers';
-
-const requestAudioPermission = async () => {
-  if (Platform.OS === 'android') {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-        {
-          title: 'Audio Permission',
-          message:
-            'This app needs access to your microphone to play audio files',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      return granted === PermissionsAndroid.RESULTS.GRANTED;
-    } catch (err) {
-      console.warn(err);
-      return false;
-    }
-  }
-  return true;
-};
 
 export const playAudio = async ({
   navigation,
@@ -87,7 +63,7 @@ export const playAudio = async ({
       endgamenode: 'tourend',
     };
     if (target?.type === 'audionode') {
-      await playAudio({
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,
@@ -132,32 +108,26 @@ export const playAudio = async ({
     handleRunTourOnLoad(itemId, id, tourRunID, currentPosition);
   }
 
-  // Play audio
-  const hasPermission = await requestAudioPermission();
-  if (hasPermission) {
-    const sound = new Sound(
-      data?.url,
-      '', // use empty string instead of null
-      error => {
-        if (error) {
-          console.log('Failed to load the sound', error);
-          return;
-        }
+  // Enable playback in silence mode
+  Sound.setCategory('Playback');
 
-        // Start playing the audio
-        sound.play(success => {
-          if (success) {
-            console.log('Playback finished successfully');
-          } else {
-            console.log('Playback failed');
-          }
-          sound.release();
-        });
+  // Play audio - no permission needed for playback
+  const sound = new Sound(data?.url, '', error => {
+    if (error) {
+      console.log('Failed to load the sound', error);
+      fetchData(); // Move to next node on error
+      return;
+    }
 
-        fetchData();
-
-        // Call your function immediately after starting the audio
-      },
-    );
-  }
+    // Start playing the audio
+    sound.play(success => {
+      if (success) {
+        console.log('Playback finished successfully');
+      } else {
+        console.log('Playback failed');
+      }
+      sound.release();
+      fetchData(); // Move to next node after playback
+    });
+  });
 };

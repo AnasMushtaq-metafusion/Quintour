@@ -7291,10 +7291,10 @@ react-native-slider@^0.11.0:
   dependencies:
     prop-types "^15.5.6"
 
-react-native-sound@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/react-native-sound/-/react-native-sound-0.11.2.tgz#e542dc5b9e16ab4b3ac7e6eaddb1fc8d98da9038"
-  integrity sha512-LmGc8lgOK3qecYMVQpyHvww/C+wgT6sWeMpVbOe4NCRGC2yKd4fo4U0KBUo9PO7AqKESO3I/2GZg1/C0+bwiiA==
+react-native-sound@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-sound/-/react-native-sound-0.13.0.tgz#ec8a5436ea748c5888dfbef6e39d8a27e97e8aac"
+  integrity sha512-SnREzaV0fmpYNuDV1Y8M7FutmaYei0pKBgpldULKKJMkoA3DBv5ppyRxY+oxRQ7HwEpt6LsonrKgM+13GH/tCw==
 
 react-native-splash-screen@^3.3.0:
   version "3.3.0"
@@ -7332,10 +7332,10 @@ react-native-video@^6.4.2:
   resolved "https://registry.yarnpkg.com/react-native-video/-/react-native-video-6.19.1.tgz#0f404f8d483252c5d3b353940d48513ca920e6d3"
   integrity sha512-Tbiyt0JMirVHc4XzGIANjs3SaNjFXQO2qe+buvY7xMJjlyCekkDjJqD9YtlaEloJD2PGWhoPytEXB6gVT7T6lw==
 
-react-native-view-shot@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/react-native-view-shot/-/react-native-view-shot-3.8.0.tgz#1aa1905f0e79428ca32bf80c16fd4abc719c600b"
-  integrity sha512-4cU8SOhMn3YQIrskh+5Q8VvVRxQOu8/s1M9NAL4z5BY1Rm0HXMWkQJ4N0XsZ42+Yca+y86ISF3LC5qdLPvPuiA==
+react-native-view-shot@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-view-shot/-/react-native-view-shot-4.0.3.tgz#9b98388fcc5228073cb66ac98ca339eda35767ac"
+  integrity sha512-USNjYmED7C0me02c1DxKA0074Hw+y/nxo+xJKlffMvfUWWzL5ELh/TJA/pTnVqFurIrzthZDPtDM7aBFJuhrHQ==
   dependencies:
     html2canvas "^1.4.1"
 

@@ -364,7 +364,6 @@ const TourQuiz = ({ navigation, route }: any) => {
     progressInput.setValue(0);
     progress.setValue(0);
     isCorrect(false);
-    getTargetID(source?.target);
     setCorrectMultipleAnswers([]);
     setIncorrectMultipleAnswers([]);
 
@@ -382,7 +381,7 @@ const TourQuiz = ({ navigation, route }: any) => {
     const targetType = target?.type ?? 'tourend';
 
     if (target?.type === 'audionode') {
-      await playAudio({
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,
@@ -400,6 +399,7 @@ const TourQuiz = ({ navigation, route }: any) => {
         getTargetLocation,
       });
     } else {
+      getTargetID(source?.target);
       navigation.replace(navigationMap[targetType], {
         data: target?.data,
         id: target?.id,

@@ -367,9 +367,8 @@ const TourSingle = ({ navigation, route }: any) => {
     });
 
     statTimer();
-    getTargetID(source?.target);
     if (target?.type === 'audionode') {
-      await playAudio({
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,
@@ -387,6 +386,7 @@ const TourSingle = ({ navigation, route }: any) => {
         getTargetLocation,
       });
     } else {
+      getTargetID(source?.target);
       switch (target?.type) {
         case 'videonode':
           navigation.replace('tourvideo', {
@@ -475,10 +475,9 @@ const TourSingle = ({ navigation, route }: any) => {
 
   const fetchTourStartedData = async (tourTarget: any) => {
     statTimer();
-    getTargetID(tourTarget?.targetID);
 
     if (target?.type === 'audionode') {
-      await playAudio({
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,
@@ -496,6 +495,7 @@ const TourSingle = ({ navigation, route }: any) => {
         getTargetLocation,
       });
     } else {
+      getTargetID(tourTarget?.targetID);
       switch (tourTarget?.type) {
         case 'videonode':
           navigation.replace('tourvideo', {

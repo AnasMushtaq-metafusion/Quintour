@@ -206,7 +206,7 @@ const TourInfo = ({ navigation, route }: any) => {
     const targetType = target?.type ?? 'tourend';
 
     if (target?.type === 'audionode') {
-      await playAudio({
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,

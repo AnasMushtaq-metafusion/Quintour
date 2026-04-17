@@ -6,8 +6,6 @@ import {
   ActivityIndicator,
   Image,
   TouchableOpacity,
-  Platform,
-  Alert,
 } from 'react-native';
 import Video from 'react-native-video';
 import LinearGradient from 'react-native-linear-gradient';
@@ -21,12 +19,6 @@ import {
   useTargetID,
   useTourRunID,
 } from '../../../Snipets/GlobalContext';
-import {
-  request,
-  PERMISSIONS,
-  RESULTS,
-  openSettings,
-} from 'react-native-permissions';
 import {
   _retrieveData,
   _storeTourPreviousNode,
@@ -45,40 +37,6 @@ import { playAudio } from '../../../Snipets/playAudio';
 import AppStyles from '../../../Asserts/global-css/AppStyles';
 import DemoIcon from '../../../Asserts/svg/DemoIcon.svg';
 import * as Sentry from '@sentry/react-native';
-
-const useStoragePermission = () => {
-  const [hasPermission, setHasPermission] = useState(false);
-
-  useEffect(() => {
-    const requestStoragePermission = async () => {
-      if (Platform.OS === 'android') {
-        const permission = PERMISSIONS.ANDROID.READ_MEDIA_VIDEO;
-        try {
-          const result = await request(permission);
-          setHasPermission(result === RESULTS.GRANTED);
-          if (result !== RESULTS.GRANTED) {
-            Alert.alert(
-              'Permission Required',
-              'Storage permission is required to play videos. Please enable it in the app settings.',
-              [
-                { text: 'Cancel', style: 'cancel' },
-                { text: 'Open Settings', onPress: () => openSettings() },
-              ],
-            );
-          }
-        } catch (err) {
-          console.warn(err);
-        }
-      } else {
-        setHasPermission(true); // Permissions are automatically granted on iOS
-      }
-    };
-
-    requestStoragePermission();
-  }, []);
-
-  return hasPermission;
-};
 
 const ProgressBar = ({ currentTime, duration }: any) => (
   <View style={styles.progress}>
@@ -130,10 +88,10 @@ const TourVideoScreen = ({ navigation, route }: any) => {
   const { getCountLocation, getTargetLocation } = useLocation();
   const { tourRunID } = useTourRunID();
   const [testMode, setTestMode] = useState<boolean>(false);
-  const hasPermission = useStoragePermission();
   const isFocused = useIsFocused();
   const [isDeactivatedLoading, setIsDeactivatedLoading] =
     useState<boolean>(true);
+  const [videoError, setVideoError] = useState<boolean>(false);
 
   const onLoad = (data: any) => {
     setDuration(Math.floor(data.duration));
@@ -148,6 +106,13 @@ const TourVideoScreen = ({ navigation, route }: any) => {
 
   const handlePlayPause = () => {
     setPaused(!paused);
+  };
+
+  const handleVideoError = (error: any) => {
+    console.error('Video playback error:', error);
+    console.error('Video path:', videopath);
+    Sentry.captureException(error);
+    setVideoError(true);
   };
 
   useEffect(() => {
@@ -257,9 +222,6 @@ const TourVideoScreen = ({ navigation, route }: any) => {
   };
 
   const onEnd = async () => {
-    setIsDeactivatedLoading(true);
-
-    getTargetID(source?.target);
     getTargetLocation('');
 
     _storeTourTargetNode({
@@ -287,8 +249,10 @@ const TourVideoScreen = ({ navigation, route }: any) => {
         layoutImage,
       });
     };
+
     if (target?.type === 'audionode') {
-      await playAudio({
+      // Don't set loading state or update targetID for audio - it handles navigation internally
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,
@@ -306,6 +270,8 @@ const TourVideoScreen = ({ navigation, route }: any) => {
         getTargetLocation,
       });
     } else {
+      getTargetID(source?.target);
+      setIsDeactivatedLoading(true);
       switch (target?.type) {
         case 'videonode':
           navigateToTarget('tourvideo');
@@ -370,7 +336,8 @@ const TourVideoScreen = ({ navigation, route }: any) => {
 
   const fileName = data?.url?.split('/').pop();
   const folderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/Videos/i_tour_${itemId}`;
-  const videopath = folderPath ? `${folderPath}/${fileName}` : data?.url;
+  const localPath = folderPath ? `${folderPath}/${fileName}` : '';
+  const videopath = localPath ? `file://${localPath}` : data?.url;
 
   return (
     <LayoutOverlay
@@ -395,23 +362,26 @@ const TourVideoScreen = ({ navigation, route }: any) => {
         <View style={styles.container}>
           <ProgressBar currentTime={currentTime} duration={duration} />
           <VideoControls paused={paused} handlePlayPause={handlePlayPause} />
-          {hasPermission ? (
-            <Video
-              source={{ uri: `${videopath}` }}
-              style={styles.video}
-              resizeMode="cover"
-              paused={paused}
-              onEnd={runTourData}
-              onLoad={onLoad}
-              onProgress={onProgress}
-            />
-          ) : (
-            <View>
-              <Text>{t('tour:no_video_found')}</Text>
+          {videoError ? (
+            <View style={styles.errorContainer}>
+              <Text style={styles.errorText}>{t('tour:no_video_found')}</Text>
               <TouchableOpacity onPress={() => runTourData()}>
                 <Text style={styles.button}>{t('tour:next_step')}</Text>
               </TouchableOpacity>
             </View>
+          ) : (
+            <Video
+              source={{ uri: videopath }}
+              style={styles.video}
+              resizeMode="contain"
+              paused={paused}
+              onEnd={runTourData}
+              onLoad={onLoad}
+              onProgress={onProgress}
+              onError={handleVideoError}
+              controls={false}
+              repeat={false}
+            />
           )}
         </View>
       )}
@@ -440,12 +410,21 @@ const TourVideoScreen = ({ navigation, route }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   video: {
     width: '100%',
     height: '100%',
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  errorText: {
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: 'center',
   },
   button: {
     backgroundColor: '#2196f3',
@@ -453,6 +432,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     fontSize: 20,
     color: '#fff',
+    borderRadius: 5,
   },
   progress: {
     position: 'absolute',

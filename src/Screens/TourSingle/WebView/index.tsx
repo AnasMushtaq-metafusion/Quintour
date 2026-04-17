@@ -243,7 +243,7 @@ const TourWebViewScreen = ({ navigation, route }: any) => {
       layoutImage,
     };
     if (target?.type === 'audionode') {
-      await playAudio({
+      playAudio({
         navigation,
         data: target?.data,
         id: target?.id,
