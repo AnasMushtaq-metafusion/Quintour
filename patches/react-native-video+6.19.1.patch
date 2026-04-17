@@ -2,7 +2,7 @@ diff --git a/node_modules/react-native-video/lib/Video.js b/node_modules/react-n
 index 3ec75c5..fcd7fc7 100644
 --- a/node_modules/react-native-video/lib/Video.js
 +++ b/node_modules/react-native-video/lib/Video.js
-@@ -483,10 +483,12 @@ const Video = (0, react_1.forwardRef)(({ source, style, resizeMode, poster, pos
+@@ -483,10 +483,12 @@ const Video = (0, react_1.forwardRef)(({ source, style, resizeMode, poster, post
              _posterResizeMode = posterResizeMode;
          }
          // poster style
@@ -19,7 +19,7 @@ index 3ec75c5..fcd7fc7 100644
          let posterStyle = baseStyle;
          if (!isPosterDeprecated && poster?.style) {
              const styles = Array.isArray(poster.style)
-@@ -517,9 +519,7 @@ const Video = (0, react_1.forwardRef)(({ source, style, resizeMode, poster, pos
+@@ -517,9 +519,7 @@ const Video = (0, react_1.forwardRef)(({ source, style, resizeMode, poster, post
          source,
          resizeMode,
      ]);
@@ -50,7 +50,7 @@ index 82b73ab..765dd33 100644
 +      ];
  
        let posterStyle: StyleProp<ImageStyle> = baseStyle;
-       if (!isPosterDeprecated && poster?.style) {
+ 
 @@ -866,9 +868,7 @@ const Video = forwardRef<VideoRef, ReactVideoProps>(
      ]);
  
