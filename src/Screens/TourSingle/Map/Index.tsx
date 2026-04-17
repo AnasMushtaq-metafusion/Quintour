@@ -55,6 +55,10 @@ interface Position {
   longitude: number;
 }
 
+const CAMERA_FIT_PADDING = 120;
+const CAMERA_FIT_ANIMATION_MS = 1000;
+const CAMERA_MAX_ZOOM = 17;
+
 const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
   const {
     data,
@@ -391,8 +395,8 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
       cameraRef.current?.fitBounds(
         [currentPosition?.longitude, currentPosition?.latitude],
         [targetPosition?.longitude, targetPosition?.latitude],
-        120,
-        1000,
+        CAMERA_FIT_PADDING,
+        CAMERA_FIT_ANIMATION_MS,
       );
       hasFittedCameraRef.current = true;
     }
@@ -459,7 +463,7 @@ const TourMap: React.FC<Props> = ({ navigation, route }: any) => {
                     currentPosition?.latitude,
                   ]}
                   minZoomLevel={1}
-                  maxZoomLevel={17}
+                  maxZoomLevel={CAMERA_MAX_ZOOM}
                 />
               )}
               {currentPosition && (
