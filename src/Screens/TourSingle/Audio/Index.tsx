@@ -1,10 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  PermissionsAndroid,
-  Platform,
-  View,
-  ActivityIndicator,
-} from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import Sound from 'react-native-sound';
 import {
   useLocation,
@@ -27,30 +22,6 @@ import {
 } from '../../../Snipets/helpers';
 import { useIsFocused } from '@react-navigation/native';
 import * as Sentry from '@sentry/react-native';
-
-const requestAudioPermission = async () => {
-  if (Platform.OS === 'android') {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-        {
-          title: 'Audio Permission',
-          message:
-            'This app needs access to your microphone to play audio files',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      return granted === PermissionsAndroid.RESULTS.GRANTED;
-    } catch (err) {
-      console.warn(err);
-      return false;
-    }
-  } else {
-    return true; // iOS permissions are handled in the app's Info.plist
-  }
-};
 
 const PlayAudio = ({ navigation, route }: any) => {
   const {

@@ -222,6 +222,8 @@ const TourVideoScreen = ({ navigation, route }: any) => {
   };
 
   const onEnd = async () => {
+    getTargetID(source?.target);
+
     getTargetLocation('');
 
     _storeTourTargetNode({
@@ -251,7 +253,6 @@ const TourVideoScreen = ({ navigation, route }: any) => {
     };
 
     if (target?.type === 'audionode') {
-      // Don't set loading state or update targetID for audio - it handles navigation internally
       playAudio({
         navigation,
         data: target?.data,
@@ -270,7 +271,6 @@ const TourVideoScreen = ({ navigation, route }: any) => {
         getTargetLocation,
       });
     } else {
-      getTargetID(source?.target);
       setIsDeactivatedLoading(true);
       switch (target?.type) {
         case 'videonode':
@@ -373,7 +373,7 @@ const TourVideoScreen = ({ navigation, route }: any) => {
             <Video
               source={{ uri: videopath }}
               style={styles.video}
-              resizeMode="contain"
+              resizeMode="cover"
               paused={paused}
               onEnd={runTourData}
               onLoad={onLoad}
@@ -410,6 +410,8 @@ const TourVideoScreen = ({ navigation, route }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   video: {
     width: '100%',
