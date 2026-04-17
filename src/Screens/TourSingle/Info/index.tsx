@@ -312,8 +312,8 @@ const TourInfo = ({ navigation, route }: any) => {
                 scrollRef={scrollRef}
                 layoutImage={layoutImage}
                 data={data}
-                imagePath={imagePath}
-                foregroundImagePath={foregroundImagePath}
+                bannerUri={bannerUri}
+                foregroundImageUri={foregroundImageUri}
                 runTourData={runTourData}
                 isReset={isReset}
                 t={t}
@@ -331,8 +331,8 @@ const TourInfo = ({ navigation, route }: any) => {
                 scrollRef={scrollRef}
                 layoutImage={layoutImage}
                 data={data}
-                imagePath={imagePath}
-                foregroundImagePath={foregroundImagePath}
+                bannerUri={bannerUri}
+                foregroundImageUri={foregroundImageUri}
                 runTourData={runTourData}
                 isReset={isReset}
                 t={t}
@@ -368,8 +368,8 @@ interface ContentScrollViewProps {
   scrollRef: React.RefObject<ScrollView | null>;
   layoutImage: any;
   data: any;
-  imagePath: string;
-  foregroundImagePath: string;
+  bannerUri: string;
+  foregroundImageUri?: string;
   runTourData: () => void;
   isReset: boolean;
   width: number;
@@ -381,8 +381,8 @@ const ContentScrollView: React.FC<ContentScrollViewProps> = ({
   scrollRef,
   layoutImage,
   data,
-  imagePath,
-  foregroundImagePath,
+  bannerUri,
+  foregroundImageUri,
   runTourData,
   isReset,
   width,

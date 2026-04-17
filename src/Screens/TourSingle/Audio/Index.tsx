@@ -226,6 +226,7 @@ const PlayAudio = ({ navigation, route }: any) => {
         });
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data?.url]);
 
   return null;
