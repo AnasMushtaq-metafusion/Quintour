@@ -327,9 +327,12 @@ const TourVideoScreen = ({ navigation, route }: any) => {
 
   const fileName = data?.url?.split('/').pop();
   const folderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/Videos/i_tour_${itemId}`;
-  const localVideoPath = fileName ? `${folderPath}/${fileName}` : null;
+  const encodedFileName = fileName ? encodeURIComponent(fileName) : null;
+  const localVideoPath = encodedFileName
+    ? `${folderPath}/${encodedFileName}`
+    : null;
   const videoUri = localVideoPath
-    ? `file://${encodeURI(localVideoPath)}`
+    ? `file://${localVideoPath}`
     : data?.url;
 
   return (

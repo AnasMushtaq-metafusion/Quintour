@@ -196,6 +196,9 @@ const handleScreenshot = async (
 
       myHeaders.append('Authorization', `Bearer ${token}`);
       myHeaders.append('Cookie', 'SERVERID=webserver4');
+      if (!uri) {
+        throw new Error('Unable to capture screenshot');
+      }
       const normalizedUri = uri.startsWith('file://') ? uri : `file://${uri}`;
 
       const formData = new FormData();

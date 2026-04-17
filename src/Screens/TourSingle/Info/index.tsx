@@ -249,25 +249,32 @@ const TourInfo = ({ navigation, route }: any) => {
 
   const fileName = data?.image_preview?.split('/').pop();
   const folderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/Images/i_tour_${itemId}`;
-  const imagePath = fileName ? `${folderPath}/${fileName}` : '';
+  const encodedFileName = fileName ? encodeURIComponent(fileName) : null;
+  const imagePath = encodedFileName ? `${folderPath}/${encodedFileName}` : '';
   const bannerUri = imagePath
-    ? `file://${encodeURI(imagePath)}`
+    ? `file://${imagePath}`
     : data?.image_preview;
 
   const backgroundImageName = layoutImage?.backgroundImage?.split('/').pop();
   const foregroundImageName = layoutImage?.foregroundImage?.split('/').pop();
   const backgroundFolderPath = `${RNFS.DocumentDirectoryPath}/Quintour/Media/BackgroundImages/i_tour_${itemId}`;
-  const backgroundImagePath = backgroundImageName
-    ? `${backgroundFolderPath}/${backgroundImageName}`
+  const encodedBackgroundImageName = backgroundImageName
+    ? encodeURIComponent(backgroundImageName)
+    : null;
+  const backgroundImagePath = encodedBackgroundImageName
+    ? `${backgroundFolderPath}/${encodedBackgroundImageName}`
     : null;
   const backgroundImageUri = backgroundImagePath
-    ? `file://${encodeURI(backgroundImagePath)}`
+    ? `file://${backgroundImagePath}`
     : layoutImage?.backgroundImage;
-  const foregroundImagePath = foregroundImageName
-    ? `${backgroundFolderPath}/${foregroundImageName}`
+  const encodedForegroundImageName = foregroundImageName
+    ? encodeURIComponent(foregroundImageName)
+    : null;
+  const foregroundImagePath = encodedForegroundImageName
+    ? `${backgroundFolderPath}/${encodedForegroundImageName}`
     : null;
   const foregroundImageUri = foregroundImagePath
-    ? `file://${encodeURI(foregroundImagePath)}`
+    ? `file://${foregroundImagePath}`
     : layoutImage?.foregroundImage;
 
   const { width } = useWindowDimensions();

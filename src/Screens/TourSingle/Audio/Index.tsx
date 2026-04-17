@@ -219,10 +219,13 @@ const PlayAudio = ({ navigation, route }: any) => {
     soundRef.current = currentSound;
 
     return () => {
-      if (soundRef.current) {
-        soundRef.current.stop(() => {
-          soundRef.current?.release();
-          soundRef.current = null;
+      const activeSound = soundRef.current;
+      if (activeSound) {
+        activeSound.stop(() => {
+          activeSound.release();
+          if (soundRef.current === activeSound) {
+            soundRef.current = null;
+          }
         });
       }
     };
