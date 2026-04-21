@@ -25,33 +25,62 @@ target 'QuinTour' do
   pod 'GoogleUtilities', :modular_headers => true
   pod 'nanopb', :modular_headers => true
 
-  # MapLibre dependency for maplibre-react-native
-  pod 'MapLibre', '~> 6.5.4', :modular_headers => true
-
   use_react_native!(
     :path => config[:reactNativePath],
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
+    :app_path => "#{Pod::Config.instance.installation_root}/..",
+    # Enable Hermes for better performance
+    :hermes_enabled => true
   )
 
   post_install do |installer|
+    # MapLibre SPM integration - must be called before other post_install hooks
+    $MLRN.post_install(installer)
+    
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
+      :mac_catalyst_enabled => false
     )
     
-    # Fix for MapLibre module not found
+    # Fix for MapLibre module not found and other compatibility fixes
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
         config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = min_ios_version_supported
+        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
         
-        # Ensure MapLibre is treated as a module
-        if target.name == 'MapLibre'
+        # Fix for PromisesSwift module interface errors
+        config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'i386'
+        
+        # Enable module stability
+        config.build_settings['SWIFT_COMPILATION_MODE'] = 'wholemodule'
+        config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = config.debug? ? '-Onone' : '-O'
+        
+        # Additional fixes for Swift module interface verification
+        config.build_settings['SWIFT_EMIT_MODULE_INTERFACE'] = 'NO'
+        config.build_settings['DEFINES_MODULE'] = 'YES'
+        config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = 'NO'
+        
+        # Specific fix for PromisesSwift and PromisesObjC
+        if target.name == 'PromisesSwift' || target.name == 'PromisesObjC'
+          config.build_settings['SWIFT_EMIT_MODULE_INTERFACE'] = 'NO'
+          config.build_settings['SWIFT_VERSION'] = '5.0'
+          config.build_settings['ENABLE_TESTING_SEARCH_PATHS'] = 'NO'
+        end
+        
+        # Fix for MapLibre module not found - enable module imports
+        if target.name == 'maplibre-react-native'
+          config.build_settings['CLANG_ENABLE_MODULES'] = 'YES'
+          config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'
           config.build_settings['DEFINES_MODULE'] = 'YES'
         end
       end
+    end
+    
+    # Update main project build settings for MapLibre
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
     end
   end
 end
