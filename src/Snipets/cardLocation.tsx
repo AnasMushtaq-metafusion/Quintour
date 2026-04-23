@@ -235,9 +235,14 @@ const CardLocation = ({ item, navigation }: any) => {
         style={styles.imageBackground}
       >
         <LinearGradient
-          colors={['rgba(9,11,17,0.2)', '#0D1015']}
-          style={styles.linearGradient}
-        >
+          colors={['transparent', 'rgba(13,16,21,0.95)']}
+          locations={[0.3, 1]}
+          style={styles.gradientOverlay}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
+          pointerEvents="none"
+        />
+        <View style={styles.contentContainer}>
           {item?.duration !== null && item?.duration > 0 && (
             <View style={styles.pill}>
               <Image
@@ -249,7 +254,7 @@ const CardLocation = ({ item, navigation }: any) => {
           )}
           <Text style={styles.description}>{item?.description}</Text>
           <Text style={styles.title}>{item?.name}</Text>
-        </LinearGradient>
+        </View>
       </ImageBackground>
     </TouchableOpacity>
   );
@@ -277,8 +282,19 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     overflow: 'hidden',
   },
-  linearGradient: {
-    flex: 1,
+  gradientOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+  contentContainer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
     paddingVertical: 24,
     paddingHorizontal: 14,
     justifyContent: 'flex-end',

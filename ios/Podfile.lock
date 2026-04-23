@@ -2576,6 +2576,7 @@ DEPENDENCIES:
   - FirebaseCore
   - FirebaseCoreExtension
   - FirebaseInstallations
+  - FirebaseMessaging
   - GoogleDataTransport
   - GoogleUtilities
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
@@ -3033,6 +3034,6 @@ SPEC CHECKSUMS:
   VisionCamera: 3ea10c46a5c612f5f89fb46a54bef4a0de8b58a7
   Yoga: b1085f68c014785350a2afdc95eaef0d49f23ccb
 
-PODFILE CHECKSUM: e0fa87cc2730aab5e228504d45d99fd73153e7dc
+PODFILE CHECKSUM: a867a3b8eb123eda06ae462fe31cc0939643b897
 
 COCOAPODS: 1.16.2
