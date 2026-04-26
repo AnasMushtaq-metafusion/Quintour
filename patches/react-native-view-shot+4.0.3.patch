@@ -7,8 +7,7 @@ index 0000000..0d259dd
 +o/classes
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/2bfeb259185bb2b51c29a7400e1b45a7/transformed/classes/classes_dex/classes.dex b/node_modules/react-native-view-shot/android/build/.transforms/2bfeb259185bb2b51c29a7400e1b45a7/transformed/classes/classes_dex/classes.dex
 new file mode 100644
-index 0000000..30ea44e
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/2bfeb259185bb2b51c29a7400e1b45a7/transformed/classes/classes_dex/classes.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/results.bin b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/results.bin
 new file mode 100644
 index 0000000..e1640c9
@@ -18,52 +17,40 @@ index 0000000..e1640c9
 +o/bundleLibRuntimeToDirRelease
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/BuildConfig.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/BuildConfig.dex
 new file mode 100644
-index 0000000..62af0f0
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/BuildConfig.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.dex
 new file mode 100644
-index 0000000..9f658db
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.dex
 new file mode 100644
-index 0000000..e0cfbf1
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotModule.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotModule.dex
 new file mode 100644
-index 0000000..c64e81b
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotModule.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotPackage.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotPackage.dex
 new file mode 100644
-index 0000000..3a24c55
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/RNViewShotPackage.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$1.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$1.dex
 new file mode 100644
-index 0000000..8c3a399
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$1.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$2.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$2.dex
 new file mode 100644
-index 0000000..a6a6252
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$2.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$Formats.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$Formats.dex
 new file mode 100644
-index 0000000..b415c95
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$Formats.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$Results.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$Results.dex
 new file mode 100644
-index 0000000..ffc4f3a
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$Results.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.dex
 new file mode 100644
-index 0000000..6e0f727
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot.dex b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot.dex
 new file mode 100644
-index 0000000..9ad37db
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/bundleLibRuntimeToDirRelease_dex/fr/greweb/reactnativeviewshot/ViewShot.dex differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/desugar_graph.bin b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/desugar_graph.bin
 new file mode 100644
-index 0000000..d6f1939
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/.transforms/84b176349440628534613a4a566459e3/transformed/bundleLibRuntimeToDirRelease/desugar_graph.bin differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/generated/source/buildConfig/release/fr/greweb/reactnativeviewshot/BuildConfig.java b/node_modules/react-native-view-shot/android/build/generated/source/buildConfig/release/fr/greweb/reactnativeviewshot/BuildConfig.java
 new file mode 100644
 index 0000000..7207178
@@ -622,8 +609,7 @@ index 0000000..bec4c5b
 \ No newline at end of file
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/aar_main_jar/release/syncReleaseLibJars/classes.jar b/node_modules/react-native-view-shot/android/build/intermediates/aar_main_jar/release/syncReleaseLibJars/classes.jar
 new file mode 100644
-index 0000000..0742d1b
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/aar_main_jar/release/syncReleaseLibJars/classes.jar differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/aar_metadata/release/writeReleaseAarMetadata/aar-metadata.properties b/node_modules/react-native-view-shot/android/build/intermediates/aar_metadata/release/writeReleaseAarMetadata/aar-metadata.properties
 new file mode 100644
 index 0000000..1211b1e
@@ -649,16 +635,13 @@ new file mode 100644
 index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/annotations_zip/release/extractReleaseAnnotations/annotations.zip b/node_modules/react-native-view-shot/android/build/intermediates/annotations_zip/release/extractReleaseAnnotations/annotations.zip
 new file mode 100644
-index 0000000..2e6b1ed
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/annotations_zip/release/extractReleaseAnnotations/annotations.zip differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/compile_library_classes_jar/release/bundleLibCompileToJarRelease/classes.jar b/node_modules/react-native-view-shot/android/build/intermediates/compile_library_classes_jar/release/bundleLibCompileToJarRelease/classes.jar
 new file mode 100644
-index 0000000..0bb71a5
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/compile_library_classes_jar/release/bundleLibCompileToJarRelease/classes.jar differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/compile_r_class_jar/release/generateReleaseRFile/R.jar b/node_modules/react-native-view-shot/android/build/intermediates/compile_r_class_jar/release/generateReleaseRFile/R.jar
 new file mode 100644
-index 0000000..793e40e
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/compile_r_class_jar/release/generateReleaseRFile/R.jar differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/compile_symbol_list/release/generateReleaseRFile/R.txt b/node_modules/react-native-view-shot/android/build/intermediates/compile_symbol_list/release/generateReleaseRFile/R.txt
 new file mode 100644
 index 0000000..e69de29
@@ -955,8 +938,7 @@ index 0000000..7bbb228
 +-dontnote java.lang.invoke.**
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/full_jar/release/createFullJarRelease/full.jar b/node_modules/react-native-view-shot/android/build/intermediates/full_jar/release/createFullJarRelease/full.jar
 new file mode 100644
-index 0000000..8207fd3
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/full_jar/release/createFullJarRelease/full.jar differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/incremental/lintVitalAnalyzeRelease/module.xml b/node_modules/react-native-view-shot/android/build/intermediates/incremental/lintVitalAnalyzeRelease/module.xml
 new file mode 100644
 index 0000000..ff7f6a7
@@ -2262,8 +2244,7 @@ index 0000000..9558afd
 \ No newline at end of file
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/incremental/release-mergeJavaRes/merge-state b/node_modules/react-native-view-shot/android/build/intermediates/incremental/release-mergeJavaRes/merge-state
 new file mode 100644
-index 0000000..1c983fc
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/incremental/release-mergeJavaRes/merge-state differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties b/node_modules/react-native-view-shot/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties
 new file mode 100644
 index 0000000..983f69f
@@ -2282,48 +2263,37 @@ index 0000000..74c1adf
 \ No newline at end of file
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/BuildConfig.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/BuildConfig.class
 new file mode 100644
-index 0000000..49951cf
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/BuildConfig.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.class
 new file mode 100644
-index 0000000..142f049
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.class
 new file mode 100644
-index 0000000..6c8b12f
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotModule.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotModule.class
 new file mode 100644
-index 0000000..21c90f2
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotModule.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotPackage.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotPackage.class
 new file mode 100644
-index 0000000..bfe31ce
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/RNViewShotPackage.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$1.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$1.class
 new file mode 100644
-index 0000000..0274a5a
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$1.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$2.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$2.class
 new file mode 100644
-index 0000000..50ed99b
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$2.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$Formats.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$Formats.class
 new file mode 100644
-index 0000000..7d5506c
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$Formats.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$Results.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$Results.class
 new file mode 100644
-index 0000000..5a92e5d
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$Results.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.class
 new file mode 100644
-index 0000000..3fe2dca
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot.class b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot.class
 new file mode 100644
-index 0000000..a7557e0
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/fr/greweb/reactnativeviewshot/ViewShot.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/lint-cache/lintVitalAnalyzeRelease/lint-cache-version.txt b/node_modules/react-native-view-shot/android/build/intermediates/lint-cache/lintVitalAnalyzeRelease/lint-cache-version.txt
 new file mode 100644
 index 0000000..b6ac95c
@@ -2665,8 +2635,7 @@ index 0000000..2e8418a
 +</metadata>
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/lint-cache/lintVitalAnalyzeRelease/sdk_index/snapshot.gz b/node_modules/react-native-view-shot/android/build/intermediates/lint-cache/lintVitalAnalyzeRelease/sdk_index/snapshot.gz
 new file mode 100644
-index 0000000..605084c
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/lint-cache/lintVitalAnalyzeRelease/sdk_index/snapshot.gz differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/lint_model/release/generateReleaseLintModel/module.xml b/node_modules/react-native-view-shot/android/build/intermediates/lint_model/release/generateReleaseLintModel/module.xml
 new file mode 100644
 index 0000000..ff7f6a7
@@ -5234,8 +5203,7 @@ new file mode 100644
 index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/local_aar_for_lint/release/out.aar b/node_modules/react-native-view-shot/android/build/intermediates/local_aar_for_lint/release/out.aar
 new file mode 100644
-index 0000000..852e7dd
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/local_aar_for_lint/release/out.aar differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/local_only_symbol_list/release/parseReleaseLocalResources/R-def.txt b/node_modules/react-native-view-shot/android/build/intermediates/local_only_symbol_list/release/parseReleaseLocalResources/R-def.txt
 new file mode 100644
 index 0000000..78ac5b8
@@ -5259,8 +5227,7 @@ index 0000000..dd27d6a
 +7</manifest>
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/merged_java_res/release/mergeReleaseJavaResource/feature-react-native-view-shot.jar b/node_modules/react-native-view-shot/android/build/intermediates/merged_java_res/release/mergeReleaseJavaResource/feature-react-native-view-shot.jar
 new file mode 100644
-index 0000000..15cb0ec
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/merged_java_res/release/mergeReleaseJavaResource/feature-react-native-view-shot.jar differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml b/node_modules/react-native-view-shot/android/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml
 new file mode 100644
 index 0000000..6db2dac
@@ -5293,52 +5260,40 @@ index 0000000..08f4ebe
 \ No newline at end of file
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/BuildConfig.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/BuildConfig.class
 new file mode 100644
-index 0000000..49951cf
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/BuildConfig.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.class
 new file mode 100644
-index 0000000..142f049
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/NativeRNViewShotSpec.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.class
 new file mode 100644
-index 0000000..6c8b12f
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotModule$CleanTask.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotModule.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotModule.class
 new file mode 100644
-index 0000000..21c90f2
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotModule.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotPackage.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotPackage.class
 new file mode 100644
-index 0000000..bfe31ce
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/RNViewShotPackage.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$1.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$1.class
 new file mode 100644
-index 0000000..0274a5a
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$1.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$2.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$2.class
 new file mode 100644
-index 0000000..50ed99b
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$2.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$Formats.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$Formats.class
 new file mode 100644
-index 0000000..7d5506c
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$Formats.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$Results.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$Results.class
 new file mode 100644
-index 0000000..5a92e5d
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$Results.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.class
 new file mode 100644
-index 0000000..3fe2dca
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot$ReusableByteArrayOutputStream.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot.class b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot.class
 new file mode 100644
-index 0000000..a7557e0
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_dir/release/bundleLibRuntimeToDirRelease/fr/greweb/reactnativeviewshot/ViewShot.class differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_jar/release/bundleLibRuntimeToJarRelease/classes.jar b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_jar/release/bundleLibRuntimeToJarRelease/classes.jar
 new file mode 100644
-index 0000000..77cf68c
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/intermediates/runtime_library_classes_jar/release/bundleLibRuntimeToJarRelease/classes.jar differ
+index 0000000..e69de29
 diff --git a/node_modules/react-native-view-shot/android/build/intermediates/symbol_list_with_package_name/release/generateReleaseRFile/package-aware-r.txt b/node_modules/react-native-view-shot/android/build/intermediates/symbol_list_with_package_name/release/generateReleaseRFile/package-aware-r.txt
 new file mode 100644
 index 0000000..8c19c61
@@ -5371,5 +5326,43 @@ index 0000000..04fe087
 +		INJECTED from /Users/apple/Workspace/QuinTour/node_modules/react-native-view-shot/android/src/main/AndroidManifest.xml
 diff --git a/node_modules/react-native-view-shot/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin b/node_modules/react-native-view-shot/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin
 new file mode 100644
-index 0000000..f6d3519
-Binary files /dev/null and b/node_modules/react-native-view-shot/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin differ
+index 0000000..e69de29
+diff --git a/node_modules/react-native-view-shot/ios/RNViewShot.mm b/node_modules/react-native-view-shot/ios/RNViewShot.mm
+index 2cf632f..a1f504f 100644
+--- a/node_modules/react-native-view-shot/ios/RNViewShot.mm
++++ b/node_modules/react-native-view-shot/ios/RNViewShot.mm
+@@ -4,7 +4,11 @@
+ #import <React/UIView+React.h>
+ #import <React/RCTUtils.h>
+ #import <React/RCTConvert.h>
++#ifdef RCT_NEW_ARCH_ENABLED
++#import <React-RCTScrollViewUtils/RCTScrollViewUtils.h>
++#else
+ #import <React/RCTScrollView.h>
++#endif
+ #import <React/RCTUIManager.h>
+ #if __has_include(<React/RCTUIManagerUtils.h>)
+ #import <React/RCTUIManagerUtils.h>
+@@ -80,6 +84,14 @@ - (dispatch_queue_t)methodQueue
+     UIView* rendered;
+     UIScrollView* scrollView;
+     if (snapshotContentContainer) {
++#ifdef RCT_NEW_ARCH_ENABLED
++      scrollView = RCTFindScrollViewInView(view);
++      if (!scrollView) {
++        reject(RCTErrorUnspecified, [NSString stringWithFormat:@"snapshotContentContainer can only be used on a ScrollView. instead got: %@", view], nil);
++        return;
++      }
++      rendered = scrollView;
++#else
+       if (![view isKindOfClass:[RCTScrollView class]]) {
+         reject(RCTErrorUnspecified, [NSString stringWithFormat:@"snapshotContentContainer can only be used on a RCTScrollView. instead got: %@", view], nil);
+         return;
+@@ -87,6 +99,7 @@ - (dispatch_queue_t)methodQueue
+       RCTScrollView* rctScrollView = view;
+       scrollView = rctScrollView.scrollView;
+       rendered = scrollView;
++#endif
+     }
+     else {
+       rendered = view;
